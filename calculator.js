@@ -53,6 +53,7 @@ let numberpad = document.querySelector("#numberpad");
 
 numberpad.style.borderColor = "red";
 
+//Creating the number buttons
 for(let i=1;i<13;i++){
 
   let numsdiv = document.createElement('div');
@@ -71,8 +72,13 @@ for(let i=1;i<13;i++){
     numsdiv.textContent = "%";
   }
 
+
   //numsdiv.setAttribute("style", "display:flex;justify-content:center;align-items:center;width:32%;height:24%;border:1px pink solid; color: blue; background: white;");
   numsdiv.setAttribute("class", "numbers");
+
+  numsdiv.addEventListener('click', (e) => {
+    console.log(e.target.innerHTML);
+  })
 
   numberpad.appendChild(numsdiv);
 

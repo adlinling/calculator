@@ -32,6 +32,7 @@ const clear =function() {
   console.log("Clearing everything");
   operanda = "";
   operandb = "";
+  setoperanda = true;
   operator = "";
   display.innerHTML = "";
   currentresult = 0;
@@ -179,9 +180,18 @@ for (oper of operations){
 
     if(e.target.innerHTML == "="){
 
-        currentresult = operate(operanda, operandb, actions[operator]);
+      if(operator == "÷" && Number(operandb) == 0){
 
+        currentresult = 0;
+        display.textContent = "Dividing by zero is not allowed!";
+
+      }else{
+        currentresult = operate(operanda, operandb, actions[operator]);
         display.textContent = currentresult;
+      }
+        
+
+        
 
         operanda = currentresult + "";//convert to string
         operator = "";
@@ -200,12 +210,19 @@ for (oper of operations){
 
         operator = e.target.innerHTML;
         display.textContent = operanda + " " + operator + " " + operandb;
+       
   
       }else{
 
-        currentresult = operate(operanda, operandb, actions[operator]);
+        if(operator == "÷" && Number(operandb) == 0){
+          currentresult = 0;
+          display.textContent = "Dividing by zero is not allowed!";
+        }else{
+          currentresult = operate(operanda, operandb, actions[operator]);
+          display.textContent = currentresult;
+        }
 
-        display.textContent = currentresult;
+
 
         operanda = currentresult + "";//convert to string
         operator = e.target.innerHTML;

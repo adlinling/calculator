@@ -54,11 +54,11 @@ let numberpad = document.querySelector("#numberpad");
 numberpad.style.borderColor = "red";
 
 
-for(let i=0;i<10;i++){
+for(let i=1;i<13;i++){
 
   let numsdiv = document.createElement('div');
   numsdiv.textContent = i;
-  numsdiv.setAttribute("style", "border: 1px black solid; color: blue; background: white;");
+  numsdiv.setAttribute("style", "display:flex;justify-content:center;align-items:center;width:32%;height:24%;border:1px pink solid; color: blue; background: white;");
 
   numberpad.appendChild(numsdiv);
 }

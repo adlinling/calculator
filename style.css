@@ -24,7 +24,7 @@
 }
 
 #operatorbtns{
-    display:flex;flex:1;border:1px rgba(190, 234, 30, 0.79) solid;
+    display:flex;flex:1;flex-wrap:wrap;border:1px rgba(190, 234, 30, 0.79) solid;
 }
 
 .numbers{
@@ -36,9 +36,19 @@
     border:1px pink solid; 
     color: blue; 
     background: white;
+    font-size:32px;
 }
 
 
 .operators{
+
+    border:1px blue solid;
+    width:94%;
+    font-size:32px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+
 
 }

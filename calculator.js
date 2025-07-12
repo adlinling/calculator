@@ -1,7 +1,7 @@
 
 const add = function(a, b) {
 
-return a + b;
+return Number(a) + Number(b);
   
 };
 
@@ -27,6 +27,19 @@ return Number(a) / Number(b);
 };
 
 
+const clear =function() {
+
+  console.log("Clearing everything");
+  operanda = "";
+  operandb = "";
+  operator = "";
+  display.innerHTML = "";
+  currentresult = 0;
+
+};
+
+
+
 function operate(a, b, operation){
 
   return operation(a, b)
@@ -42,7 +55,10 @@ const power = function(number, exponent) {
 
 let currentresult = 0;
 
-let operanda = "", operandb = "";
+
+let setoperanda = true;
+
+let currentnuminput = "", operator = "", displaystring = "", operanda = "", operandb = "";
 
 let display = document.querySelector("#display");
 
@@ -75,28 +91,61 @@ for(let i=1;i<13;i++){
   numsdiv.setAttribute("class", "numbers");
 
   numsdiv.addEventListener('click', (e) => {
+
     console.log(e.target.innerHTML);
 
     let numinput = e.target.innerHTML;
 
-    if(numinput !== "Del"){
 
-      if(numinput == "."){
-          if(!operanda.includes(".")){
-            operanda += numinput;
-          }
-      }else{
-        operanda += numinput;
-      }
+    if(setoperanda){
       
+      operanda = (operanda == "0")?"":operanda;//prevents numbers starting with 0
+
+      if(numinput !== "Del"){
+
+        if(numinput == "."){
+            if(!operanda.includes(".")){
+              operanda += numinput;
+              
+            }
+        }else{
+          operanda += numinput;
+        }
+        
+  
+      }else{
+        operanda = operanda.slice(0, -1);
+      }
 
     }else{
-      operanda = operanda.slice(0, -1);
+
+      operandb = (operandb == "0")?"":operandb;//prevents numbers starting with 0
+
+      if(numinput !== "Del"){
+
+        if(numinput == "."){
+            if(!operandb.includes(".")){
+              operandb += numinput;
+              
+            }
+        }else{
+          operandb += numinput;
+        }
+        
+  
+      }else{
+        operandb = operandb.slice(0, -1);
+      }
     }
 
-    display.innerHTML = operanda;
 
+    display.textContent = operanda + " " + operator + " " + operandb;
 
+    //currentnuminput = +displaystring;
+    console.log("A: " + operanda)
+    console.log("Operator: " + operator)
+    console.log("B: " + operandb)
+    //console.log("Current # input: " + currentnuminput)
   })
 
   numberpad.appendChild(numsdiv);
@@ -105,6 +154,14 @@ for(let i=1;i<13;i++){
 
 let operatorsdiv = document.querySelector("#operatorbtns");
 let operations = [ "+", "-", "×", "÷", "=", "C"];
+
+let actions = {
+  "+":add,
+  "-":subtract,
+  "×":multiply,
+  "÷":divide,
+  "C":clear
+}
 
 //Creating the operator buttons
 for (oper of operations){
@@ -117,7 +174,52 @@ for (oper of operations){
   //console.log(oper);
 
   operdiv.addEventListener('click', (e) => {
+
     console.log(e.target.innerHTML);
+
+    if(e.target.innerHTML == "="){
+
+        currentresult = operate(operanda, operandb, actions[operator]);
+
+        display.textContent = currentresult;
+
+        operanda = currentresult + "";//convert to string
+        operator = "";
+        operandb = "";
+        setoperanda = true;
+
+    }else if(e.target.innerHTML == "C"){
+
+        clear();
+    
+    }else{
+
+      setoperanda = false;
+
+      if(operandb == ""){
+
+        operator = e.target.innerHTML;
+        display.textContent = operanda + " " + operator + " " + operandb;
+  
+      }else{
+
+        currentresult = operate(operanda, operandb, actions[operator]);
+
+        display.textContent = currentresult;
+
+        operanda = currentresult + "";//convert to string
+        operator = e.target.innerHTML;
+        operandb = "";
+
+      }
+  
+    }
+
+    console.log("A: " + operanda)
+    console.log("Operator: " + operator)
+    console.log("B: " + operandb)
+    
+
   })
 
   operatorsdiv.appendChild(operdiv);
@@ -125,6 +227,5 @@ for (oper of operations){
 }
 
 
-let c = operate(3, 8, multiply);
-console.log(c);
+
 

@@ -6,7 +6,7 @@
   align-items:center;
   padding:20px 0px 20px;
   border: 1px black solid; 
-  width:30%;
+  width:35%;
   min-width:450px;
   height:600px;
 }
@@ -18,24 +18,30 @@
     font-size:32px;
     padding:10px 30px 10px;
     width:80%;flex:1;
-    border:1px blue solid;
+    border:1px rgb(0, 0, 0) solid;
 }
 
 #buttons{
-    display:flex;width:94%;flex:5;border:1px rgb(16, 142, 50) solid;
+    display:flex;
+    width:94%;flex:5;
+    padding:10px 0px 10px;
+    
 }
 
 #numberpad{
     display:flex;
     flex-wrap:wrap;
     flex:3;
-    padding:0px 4px 0px;
+    padding:0px 0px 0px;
     justify-content:center;
-    border:1px rgb(180, 10, 117) solid; 
+    border:1px rgb(0, 0, 0) solid; 
 }
 
 #operatorbtns{
-    display:flex;flex:1;flex-wrap:wrap;border:1px rgba(190, 234, 30, 0.79) solid;
+    display:flex;
+    flex:1;
+    flex-wrap:wrap;
+    
 }
 
 .numbers{
@@ -44,7 +50,7 @@
     align-items:center;
     width:32%;
     height:24%;
-    border:1px pink solid; 
+    border:1px rgb(0, 0, 0) solid; 
     color: black; 
     background: white;
     font-size:32px;
@@ -53,7 +59,7 @@
 
 .operators{
 
-    border:1px blue solid;
+    border:1px rgb(0, 0, 0) solid;
     width:94%;
     font-size:32px;
     display:flex;

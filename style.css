@@ -12,7 +12,13 @@
 }
 
 #display{
-    width:94%;flex:1;border:1px blue solid;
+    display:flex;
+    justify-content:right;
+    align-items:center;
+    font-size:32px;
+    padding:10px 30px 10px;
+    width:80%;flex:1;
+    border:1px blue solid;
 }
 
 #buttons{
@@ -20,7 +26,12 @@
 }
 
 #numberpad{
-    display:flex;flex-wrap:wrap;flex:3;padding:0px 4px 0px;justify-content:center;border:1px rgb(180, 10, 117) solid; 
+    display:flex;
+    flex-wrap:wrap;
+    flex:3;
+    padding:0px 4px 0px;
+    justify-content:center;
+    border:1px rgb(180, 10, 117) solid; 
 }
 
 #operatorbtns{
@@ -34,7 +45,7 @@
     width:32%;
     height:24%;
     border:1px pink solid; 
-    color: blue; 
+    color: black; 
     background: white;
     font-size:32px;
 }

@@ -27,29 +27,25 @@ return Number(a) / Number(b);
 };
 
 
+function operate(a, b, operation){
+
+  return operation(a, b)
+
+}
+
+
 
 const power = function(number, exponent) {
   return number ** exponent;
 };
 
-const factorial = function(number) {
-     
-if(number == 0) return 1;
-
-let factorial = number;
-
-for (let i = number - 1; i > 0; i--){
-    console.log(i);
-    factorial *= i;
-}
-
-console.log("Final: " + factorial);
-return factorial;
-
-};
-
 
 let currentresult = 0;
+
+let operanda = "", operandb = "";
+
+let display = document.querySelector("#display");
+
 
 let numberpad = document.querySelector("#numberpad");
 
@@ -63,6 +59,10 @@ for(let i=1;i<13;i++){
 
   numsdiv.textContent = i;
 
+  if(i === 10){
+    numsdiv.textContent = "Del";
+  }
+
   if(i === 11){
     numsdiv.textContent = 0;
   }
@@ -71,25 +71,42 @@ for(let i=1;i<13;i++){
     numsdiv.textContent = ".";
   }
 
-  if(i === 10){
-    numsdiv.textContent = "%";
-  }
-
-
   //numsdiv.setAttribute("style", "display:flex;justify-content:center;align-items:center;width:32%;height:24%;border:1px pink solid; color: blue; background: white;");
   numsdiv.setAttribute("class", "numbers");
 
   numsdiv.addEventListener('click', (e) => {
     console.log(e.target.innerHTML);
+
+    let numinput = e.target.innerHTML;
+
+    if(numinput !== "Del"){
+
+      if(numinput == "."){
+          if(!operanda.includes(".")){
+            operanda += numinput;
+          }
+      }else{
+        operanda += numinput;
+      }
+      
+
+    }else{
+      operanda = operanda.slice(0, -1);
+    }
+
+    display.innerHTML = operanda;
+
+
   })
 
   numberpad.appendChild(numsdiv);
 
 }
 
-let operations = ["+", "-", "x", "÷"];
 let operatorsdiv = document.querySelector("#operatorbtns");
+let operations = [ "+", "-", "×", "÷", "=", "C"];
 
+//Creating the operator buttons
 for (oper of operations){
 
   let operdiv = document.createElement('div');
@@ -97,10 +114,17 @@ for (oper of operations){
   operdiv.setAttribute("class", "operators");
   operdiv.textContent = oper;
   
-  console.log(oper);
+  //console.log(oper);
+
+  operdiv.addEventListener('click', (e) => {
+    console.log(e.target.innerHTML);
+  })
 
   operatorsdiv.appendChild(operdiv);
 
 }
 
+
+let c = operate(3, 8, multiply);
+console.log(c);
 

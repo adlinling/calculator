@@ -8,7 +8,7 @@
   border: 1px black solid; 
   width:30%;
   min-width:450px;
-  height:800px;
+  height:600px;
 }
 
 #display{
@@ -23,7 +23,7 @@
     display:flex;flex-wrap:wrap;flex:3;padding:0px 4px 0px;justify-content:center;border:1px rgb(180, 10, 117) solid; 
 }
 
-#operators{
+#operatorbtns{
     display:flex;flex:1;border:1px rgba(190, 234, 30, 0.79) solid;
 }
 
@@ -36,4 +36,9 @@
     border:1px pink solid; 
     color: blue; 
     background: white;
+}
+
+
+.operators{
+
 }

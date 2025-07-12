@@ -49,9 +49,12 @@ return factorial;
 };
 
 
+let currentresult = 0;
+
 let numberpad = document.querySelector("#numberpad");
 
-numberpad.style.borderColor = "red";
+
+//numberpad.style.borderColor = "red";
 
 //Creating the number buttons
 for(let i=1;i<13;i++){
@@ -83,4 +86,21 @@ for(let i=1;i<13;i++){
   numberpad.appendChild(numsdiv);
 
 }
+
+let operations = ["+", "-", "x", "÷"];
+let operatorsdiv = document.querySelector("#operatorbtns");
+
+for (oper of operations){
+
+  let operdiv = document.createElement('div');
+  
+  operdiv.setAttribute("class", "operators");
+  operdiv.textContent = oper;
+  
+  console.log(oper);
+
+  operatorsdiv.appendChild(operdiv);
+
+}
+
 

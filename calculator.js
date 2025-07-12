@@ -1,28 +1,27 @@
 
-const add = function(a, b) {
+  const add = function(a, b) {
 
-  return Number(a) + Number(b);
+    return Number(a) + Number(b);
     
   };
   
   const subtract = function(a, b) {
   
-  return Number(a) - Number(b);
+    return Number(a) - Number(b);
     
   };
   
   
   const multiply =function(a, b) {
   
-  return Number(a) * Number(b);
+    return Number(a) * Number(b);
     
   };
-  
-  
+    
   
   const divide =function(a, b) {
   
-  return Number(a) / Number(b);
+    return Number(a) / Number(b);
     
   };
   
@@ -39,7 +38,8 @@ const add = function(a, b) {
   
   };
 
-
+  //This is for when a number is pressed followed by press of = 
+  //Prevents error message in console
   const empty =function(a, b) {
       return a;
   };
@@ -53,28 +53,21 @@ const add = function(a, b) {
   
   }
   
-  
-  
+    
   const power = function(number, exponent) {
     return number ** exponent;
   };
   
   
-  let currentresult = "";
-  
-  
-  let setoperanda = true;
-  
-  let currentnuminput = "", operator = "", displaystring = "", operanda = "", operandb = "";
+
+  let setoperanda = true, currentresult = "", operator = "", displaystring = "", operanda = "", operandb = "";
   
   let display = document.querySelector("#display");
   
   
   let numberpad = document.querySelector("#numberpad");
   
-  
-  //numberpad.style.borderColor = "red";
-  
+    
   //Creating the number buttons
   for(let i=1;i<13;i++){
   
@@ -94,7 +87,7 @@ const add = function(a, b) {
       numsdiv.textContent = ".";
     }
   
-    //numsdiv.setAttribute("style", "display:flex;justify-content:center;align-items:center;width:32%;height:24%;border:1px pink solid; color: blue; background: white;");
+    
     numsdiv.setAttribute("class", "numbers");
   
     numsdiv.addEventListener('click', (e) => {
@@ -103,8 +96,6 @@ const add = function(a, b) {
   
       let numinput = e.target.innerHTML;
   
-  
-
       if(setoperanda){
         
         operanda = (operanda == "0")?"":operanda;//prevents numbers starting with 0
@@ -153,14 +144,12 @@ const add = function(a, b) {
         }
       }
   
-  
       display.textContent = operanda + " " + operator + " " + operandb;
-  
-      //currentnuminput = +displaystring;
+        
       console.log("A: " + operanda)
       console.log("Operator: " + operator)
       console.log("B: " + operandb)
-      //console.log("Current # input: " + currentnuminput)
+      
     })
   
     numberpad.appendChild(numsdiv);

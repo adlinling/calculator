@@ -1,3 +1,39 @@
+#body{
+  margin: 0 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:top;
+  align-items:center;
+  padding:20px 0px 20px;
+  border: 1px black solid; 
+  width:30%;
+  min-width:450px;
+  height:800px;
+}
+
+#display{
+    width:94%;flex:1;border:1px blue solid;
+}
+
+#buttons{
+    display:flex;width:94%;flex:5;border:1px rgb(16, 142, 50) solid;
+}
+
+#numberpad{
+    display:flex;flex-wrap:wrap;flex:3;padding:0px 4px 0px;justify-content:center;border:1px rgb(180, 10, 117) solid; 
+}
+
+#operators{
+    display:flex;flex:1;border:1px rgba(190, 234, 30, 0.79) solid;
+}
+
 .numbers{
-    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:32%;
+    height:24%;
+    border:1px pink solid; 
+    color: blue; 
+    background: white;
 }

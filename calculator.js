@@ -26,14 +26,17 @@
   };
   
   
-  const clear =function() {
+  const clear =function(cleardisplay) {
   
     console.log("Clearing everything");
     operanda = "";
     operandb = "";
     setoperanda = true;
     operator = "";
-    display.innerHTML = "";
+    if(cleardisplay){
+      display.innerHTML = "";
+    }
+    
     currentresult = 0;
   
   };
@@ -97,6 +100,7 @@
       let numinput = e.target.innerHTML;
   
       if(setoperanda){
+  
         
         operanda = (operanda == "0")?"":operanda;//prevents numbers starting with 0
   
@@ -119,11 +123,20 @@
           
     
         }else{
+
+          //console.log("Del key pressed while setting operand a");
           operanda = operanda.slice(0, -1);
+
+          //After user divides by zero, pressing Del will cause the operator to display with no operands
+          if(operanda == ""){
+            operator = "";
+          }
+
         }
   
       }else{
   
+        
         operandb = (operandb == "0")?"":operandb;//prevents numbers starting with 0
   
         if(numinput !== "Del"){
@@ -140,12 +153,17 @@
           
     
         }else{
+
+          //console.log("Del key pressed while setting operand b");
           operandb = operandb.slice(0, -1);
+          
         }
       }
   
+      
+      
       display.textContent = operanda + " " + operator + " " + operandb;
-        
+    
       console.log("A: " + operanda)
       console.log("Operator: " + operator)
       console.log("B: " + operandb)
@@ -187,6 +205,7 @@
   
           currentresult = 0;
           display.textContent = "Dividing by zero is not allowed!";
+          clear(0);
   
         }else{
 
@@ -205,7 +224,7 @@
   
       }else if(e.target.innerHTML == "C"){
   
-          clear();
+          clear(1);
       
       }else{
   
@@ -222,6 +241,8 @@
           if(operator == "÷" && Number(operandb) == 0){
             currentresult = 0;
             display.textContent = "Dividing by zero is not allowed!";
+            clear(0);
+
           }else{
             currentresult = operate(operanda, operandb, actions[operator]);
             display.textContent = currentresult;

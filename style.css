@@ -6,19 +6,27 @@
   align-items:center;
   padding:20px 0px 20px;
   border: 1px black solid; 
+  background-color:rgba(0, 0, 0, 0.31);
   width:450px;
   height:600px;
   gap:10px;
+  border-radius: 10px;
+}
+
+h1{
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 #display{
     display:flex;
     justify-content:right;
     align-items:center;
+    border-radius: 10px;
     font-size:32px;
     padding:10px 30px 10px;
     width:79%;flex:1;
     border:1px rgb(0, 0, 0) solid;
+    background-color:rgba(233, 233, 233, 1);
 }
 
 #buttons{
@@ -58,7 +66,8 @@
     height:23.5%;
     border:1px rgb(0, 0, 0) solid; 
     color: black; 
-    background: white;
+    background-color:rgba(233, 233, 233, 1);
+    border-radius: 15px;
     font-size:32px;
 }
 
@@ -70,7 +79,9 @@
     height:15.5%;
     font-size:32px;
     display:flex;
+    border-radius: 10px;
     justify-content:center;
+    background-color:rgba(233, 233, 233, 1);
     align-items:center;
 
 

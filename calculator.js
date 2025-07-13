@@ -273,15 +273,14 @@
     keyboard = 1;
 
     if(numpadkeys.indexOf(event.key) !== -1){
-        console.log(`A number pad key was pressed. key=${event.key},code=${event.code}`);
-        
-        numberinput(event, keyboard);
+       console.log(`A number pad key was pressed. key=${event.key},code=${event.code}`);        
+       numberinput(event, keyboard);
     }
 
     if(operatorkeys.indexOf(event.key) !== -1){
-      console.log(`A operator key was pressed. key=${event.key},code=${event.code}`);
-      operatorinput(event, keyboard);
-  }
+       console.log(`A operator key was pressed. key=${event.key},code=${event.code}`);
+       operatorinput(event, keyboard);
+    }
 
   });
 
